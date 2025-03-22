@@ -1,0 +1,175 @@
+---
+title: 'Week 9: Lab - Using aRules on the Titanic dataset '
+author: '[Name]'
+date: '[Date]'
+output: html_document
+---
+
+---
+
+# Instructions
+Use the Titanic dataset to explore descriptive statistics, functions, and
+association rules. Download the titanic dataset `titanic.raw.rdata` from one
+of two locations:
+
+- https://github.com/ethen8181/machine-learning/tree/master/association_rule/R
+- https://sites.google.com/a/rdatamining.com/www/data/titanic.raw.rdata?attredirects=1
+ 
+Note that it is not a cvs file, but rather an RData workspace. So, to load the 
+data (assuming you saved it to the project's data folder), one would do:
+
+``load("data/titanic.raw.rdata")``
+
+You need to look at titanic.raw (the name of the R dataset)
+
+``t <- titanic.raw``
+
+Now that you have the datafile, do some descriptive statistics, getting some 
+extra practice using R. Take the Quiz for Step 1 and 2. However your submission 
+**MUST** include the process of you calculating the following values in Step 1 and 2.
+
+---
+
+```{r setup, message = FALSE}
+# Add your library below.
+
+
+
+```
+
+# Step 0 - Load the data
+Using the instructions above, load the dataset and save it as `t`.
+
+```{r, "Step 0"}
+# Write your code below.
+
+
+
+```
+---
+
+
+# Step 1 - Descriptive stats 
+Important: Right next to your code, your answer should be written such as # 14% of children survived after rounding the 1 decimal place. For example, 1.36 is 2 
+1. Compute the percentage of people that survived.
+2. Compute the percentage of people that were children.
+3. Compute the percentage of people that were female.
+4. Finally, compute the percentage of people that were in first class.
+
+```{r, "Step 1"}
+# Write your code below.
+
+
+
+```
+
+---
+
+# Step 2 - More descriptive stats 
+
+
+1. What percentage of children survived? Your answer should be written such as # 14% of children survived after rounding the 1 decimal place. For example, 1.36 is 2
+2. What percentage of female survived?
+3. What percentage of first-class people survived?
+4. What percentage of third-class people survived?
+
+```{r, "Step 2"}
+# Write your code below.
+
+
+
+```
+
+---
+
+# Step 3 - Writing a function 
+
+## Step 3.1 - Function 1
+Write a function that returns a new dataframe of people that satisfies the 
+specified criteria of sex, age, class and survived as parameters. I'm giving you 
+the answer for this question:
+
+```
+myfunction1 <- function(a,b,c,d){
+df1 <- t[t$Class == a,] # filter the data that satisfied the criteria that "Class" = a
+df2 <- df1[df1$Sex == b,] # filter the data that satisfied the criteria that "Sex" = b
+df3 <- df2[df2$Age == c,] # filter the data that satisfied the criteria that "Age" = c
+df4 <- df3[df3$Survived == d,] # filter the data that satisfied the criteria that "Survived" = d
+return(df4)}
+# test the function with a sample data
+myfunction1("1st","Female","Adult","No")
+```
+
+```{r, "Step 3.1"}
+# Write your code below.
+
+
+
+```
+
+## Step 3.2 - Function 2
+Write a function, using the previous function, that calculates the percentage (who lives, who dies) for specified (parameters) classes. The function passes four arguments. Calculating percentage means that the number of observations that meets the criteria (values of the specified classes) divided by the entire number of observations.  
+
+
+```{r, "Step 3.2"}
+# Write your code below.
+
+
+
+```
+
+```{r}
+ # test the function with a sample data. 
+ # myfunction2("1st","Female","Adult","No")
+```
+
+## Step 3.3 - Use the function (male)
+Use the function to compare age and third-class male survival rates. 
+
+```{r, "Step 3.3"}
+# Write your code below.
+
+
+
+```
+People in which category are more likely to survive? 
+
+> [Type your answer here]
+
+
+## Step 3.4 - Use the function (female)
+Use the function to compare age and first-class female survival rates.
+
+```{r, "Step 3.4"}
+# Write your code below.
+
+
+
+```
+People in which category are more likely to survive? 
+
+> [Type your answer here]
+
+---
+
+# Step 4 - Use aRules 
+
+1. Use aRules to calculate some rules (clusters) for the titanic dataset. set support threshold as 0.005, and confidence as 0.5. Show only rhs=(“Survived=Yes”). Read the documentation to investigate “appearance”
+2. Visualize the results.
+3. Pick the three most interesting and useful rules (a. pick rules whose lift is higher than 2, b. sort the good rules by “lift”). Explain these rules using natural language.  **Answer this in the space provided below.**
+4. How does this compare to the descriptive analysis we did on the same data set? 
+Think critically. What was possible using one method that was not possible using 
+the other method? **Answer this in the space provided below.**
+
+```{r, "Step 4.1"}
+# Write your code below.
+
+
+
+```
+
+**Answer part 3 and 4 below.**
+
+> [Type your answers here]
+
+
